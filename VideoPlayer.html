@@ -1,0 +1,106 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport"
+		content="width=device-width, 
+				initial-scale=1.0"> 
+	<title>Custom Youtube Video Player</title> 
+	<link rel="stylesheet"
+		href= 
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> 
+	<link rel="stylesheet"
+		href="style.css"> 
+
+</head> 
+
+<body> 
+	<div class="adi">  
+		<p>Custom Youtube Video Player</p> 
+	</div> 
+	
+	<!-- Video container -->
+	<div class="video-container"> 
+		<img src= 
+"https://shorturl.at/uEFO9"
+			id="video-thumbnail"> 
+		<video id="video"> 
+			
+		<!-- Video source -->
+			<source
+				src= 
+"https://media.geeksforgeeks.org/wp-content/uploads/20231020155223/Full-Stack-Development-_-LIVE-Classes-_-GeeksforGeeks.mp4"
+				type="video/mp4"> 
+		</video> 
+
+		
+		<!-- Controlers continer -->
+		<div class="controls"> 
+			
+		<!-- Left controller div -->
+			<div class="left"> 
+				<button id="skipminus-10"> 
+					<i class="fa-solid fa-backward"></i> 
+				</button> 
+				<button id="play-pause"> 
+					<i class="fa-solid fa-play"></i> 
+				</button> 
+				<button id="skip-10"> 
+					<i class="fa-solid fa-forward"></i> 
+				</button> 
+			</div> 
+			
+	<!-- div for progress bar -->
+			<div class="video-timer"> 
+				<span id="current-time">00:00</span> 
+				<span id="separator">/</span> 
+				<span id="max-duration">00:00</span> 
+			</div> 
+			<div class="playback-line"> 
+				<div class="progress-bar"></div> 
+
+			</div> 
+			
+			<!-- Right controller div -->
+			<div class="right"> 
+				<div class="volume-container"> 
+					<div id="mute"> 
+						<i class="fas fa-volume-up"></i> 
+					</div> 
+					<input type="range"
+						id="volume"
+						min="0"
+						max="1"
+						step="0.01"
+						value="1"> 
+				</div> 
+			</div> 
+		</div> 
+
+	</div>
+<div id="adi">
+    <p>Custom Youtube Video Player</p>
+    <vid></vid>
+</div>
+    <script>
+        fetch('https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=UUINkN9tOhTvaHprpvBm7b1w&key=AIzaSyDd2NKFiz0NuYcdEqVvF0jqMRzuYHJ7ICg
+')
+.then(res=>{
+    res.json();
+})
+.then(data=>
+    data.items.foreach(curr)=>{
+        vidTitle=snippet.title;
+        vidURL="https://www.youtube.com/watch?v="+curr.snippet.resourceId.videoId;
+        console.log(curr.snippet.resourceId.videoId);
+
+        markup='<a href='${vidURL}', target='_blank'>'$vidTitle'</a><p>'; 
+            document.querySelector('vid').insertAdjacentHTML("beforeend",markup);
+    })
+    </script>
+    
+	<script src="script.js"></script> 
+</body> 
+
+</html>
